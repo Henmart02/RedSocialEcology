@@ -1,259 +1,105 @@
-
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family:'Poppins',sans-serif;
 }
 
-body{
+.container{
+    min-height: 100vh;
+    background: #08071d;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: url("/src/img/sunrise-bali-jungle.jpg") no-repeat;
-    background-size: cover;
-    background-position: center;
+    background: url("https://img.freepik.com/free-photo/sunrise-bali-jungle_1385-1644.jpg?w=1380&t=st=1694974433~exp=1694975033~hmac=43d315eacfe9319841aa34944db322de11bf491cfde0886984a52baf99c2746a") no repeat center center/cover;
 }
 
-header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 100px;
-    /*background: blue;*/
+.container form{
+    width: 670px;
+    height: 400px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 99;
+    justify-content:center;
+    box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
+    border-radius: 15px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    flex-wrap:wrap;
 }
 
-.logo{
-    font-size: 2em;
+.container form h1{
     color: #fff;
-    user-select: none;
-}
-
-.navigation a {
-    position: relative;
-    font-size: 1.1em;
-    color: #fff;
-    text-decoration: none;
     font-weight: 500;
-    margin-left: 40px;
-    
+    margin-top: 20px;
+    width:500px;
+    text-align: center;
 }
 
-.navigation a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 100%;
-    height: 3px;
+.container form input{
+    width: 290px;
+    height: 40px;
+    padding-left:10px;
+    outline:none;
+    border: none;
+    font-size: 15px;
+    margin-bottom: 10px;
+    background:none;
+    border-bottom: 2px solid #fff;
+}
+
+.container form input::placeholder{
+    color:#ddd;
+}
+
+.container form #lastName,
+.container form #mobile{
+    margin-left: 20px;
+}
+
+.container form h4{
+    color: #fff;
+    font-weight: 300;
+    width: 600px;
+    margin-top: 20px;
+}
+
+.container form textarea{
+    background:none;
+    border:none;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+    font-weight:200;
+    font-size:15px;
+    padding: 10px;
+    outline: none;
+    min-width: 600px;
+    max-width: 600px;
+    min-height: 80px;
+    max-height: 80px;
+}
+
+textarea::-webkit-scrollbar{
+    width: 1em;
+}
+
+textarea::-webkit-scrollbar-thumb{
+    background-color: rgba(194,194,194,0.713);
+}
+
+.container form #buttom{
+    border:none;
     background: #fff;
     border-radius: 5px;
-    transform-origin: right;
-    transform: scale(0);
-    transition: transform .5s;
-}
-
-.navigation a:hover::after {
-    transform-origin: left;
-    transform: scale(1);
-}
-
-.navigation .btnLogin-popup{
-    width: 130px;
-    height: 50px;
-    background: transparent;
-    border: 2px solid #fff;
-    outline: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1.1em;
-    color: #fff;
-    font-weight: 500;
-    margin-left: 40px;
-    transition: .5s;
-}
-
-.navigation .btnLogin-popup:hover{
-    background: #fff;
-    color: #162938;
-}
-
-.wrapper{
-    position: relative;
-    width: 400px;
-    height: 440px;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .5);
-    border-radius: 20px;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 0 30px rgba(0,0,0,.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    transform: scale(0);
-    transition: transform .5s ease,height .2s easeS;
-}
-
-.wrapper.active-popup{
-    transform: scale(1);
-}
-
-.wrapper.active{
-    height: 520px;
-}
-
-.wrapper .form-box{
-    width: 100%;
-    padding: 40px;
-}
-
-.wrapper .form-box.login{
-    transition: transform .18s ease;
-    transform: translateX(0);
-}
-
-.wrapper.active .form-box.login{
-    transition: none;
-    transform: translateX(-400px);
-}
-
-.wrapper .form-box.register{
-    position: absolute;
-    transition: none;
-    transform: translate(400px);
-}
-
-.wrapper.active .form-box.register{
-    transition: transform .18s ease;
-    transform: translateX(0);
-}
-
-.wrapper .icon-close{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 45px;
-    height: 45px;
-    background: #162938;
-    font-size: 2em;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom-left-radius: 20px;
-    cursor: pointer;
-    z-index: 1;
-}
-
-.form-box h2{
-    font-size: 2em;
-    color: #162938;
-    text-align: center;
-}
-
-.input-box{
-    position: relative;
-    width: 100%;
-    height: 50px;
-    border-bottom: 2px solid #162938;
-    margin: 30px 0;
-}
-
-.input-box label{
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-    font-size: 1em;
-    color: #162938;
-    font-weight: 500;
-    pointer-events: none;
-    transition: .5s;
-}
-
-.input-box input:focus~label{
-    top: -5px;
-}
-.input-box input:valid~label{
-    top: -5px;
-}
-.input-box input{
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: 1em;
-    color:#162938;
+    margin-top: 20px;
     font-weight: 600;
-    padding: 0 35px 0 5px;
+    font-size: 20px;
+    color: #333;
+    width: 100px;
+    padding: 0;
+    margin-right: 500px;
+    margin-bottom: 30px;
+    transition: 0.3s;
 }
 
-.input-box .icon{
-    position: absolute;
-    right: 8px;
-    font-size: 1.2em;
-    color: #162938;
-    line-height: 57px;
-}
-
-.remember-forgot {
-    font-size: .9em;
-    color:#162938;
-    font-weight: 500;
-    margin: -15px 0 15px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.remember-forgot label input{
-    accent-color: #162938;
-    margin-right: 3px;
-}
-
-.remember-forgot a {
-    color:#162938;
-    text-decoration: none;
-}
-
-.remember-forgot a:hover{
-    text-decoration: underline;
-}
-
-.btn{
-    width: 100%;
-    height: 45px;
-    background: #162938;
-    border: none;
-    outline: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1em;
-    color:#fff;
-    font-weight: 500;
-}
-
-.login-register{
-    font-size: .9em;
-    color: #162938;
-    text-align: center;
-    font-weight: 500;
-    margin: 25px 0 10px;
-}
-
-.login-register p a{
-    color:#162938;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.login-register p a:hover{
-    text-decoration:underline;
+.container form #buttom:hover{
+    opacity: 0.7;
 }
