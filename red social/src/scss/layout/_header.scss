@@ -1,0 +1,117 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+/*
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-image:url("./src/img/sunrise-bali-jungle.jpg") no-repeat;
+	background-size: cover;
+	background-position: center;
+}*/
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-image: url("https://img.freepik.com/free-photo/sunrise-bali-jungle_1385-1644.jpg?w=1380&t=st=1694974433~exp=1694975033~hmac=43d315eacfe9319841aa34944db322de11bf491cfde0886984a52baf99c2746a");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 20px 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 99;
+}
+.logo {
+	font-size: 2em;
+	color: v.$color_1;
+	user-select: none;
+}
+.navigation {
+	a {
+		position: relative;
+		font-size: 1.1em;
+		color: v.$color_1;
+		text-decoration: none;
+		font-weight: 500;
+		margin-left: 40px;
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: -6px;
+			width: 100%;
+			height: 3px;
+			background: #fff;
+			border-radius: 5px;
+			transform-origin: right;
+			transform: scale(0);
+			transition: transform .5s;
+		}
+		&:hover {
+			&::after {
+				transform-origin: left;
+				transform: scale(1);
+			}
+		}
+	}
+	.btnLogin-popup {
+		width: 130px;
+		height: 50px;
+		background: transparent;
+		border: 2px solid #fff;
+		outline: none;
+		border-radius: 6px;
+		cursor: pointer;
+		font-size: 1.1em;
+		color: v.$color_1;
+		font-weight: 500;
+		margin-left: 40px;
+		transition: .5s;
+		&:hover {
+			background: #fff;
+			color: v.$color_2;
+		}
+	}
+}
+.wrapper {
+	position: relative;
+	width: 400px;
+	height: 440px;
+	background: transparent;
+	border: 2px solid rgba(255, 255, 255, .5);
+	border-radius: 20px;
+	backdrop-filter: blur(20px);
+	box-shadow: 0 0 30px rgba(0,0,0,.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	transform: scale(0);
+	transition: transform .5s ease,height .2s easeS;
+	.form-box {
+		width: 100%;
+		padding: 40px;
+	}
+	.form-box.login {
+		transition: transform .18s ease;
+		transform: translateX(0);
+	}
+	.form-box.register {
+		position: absolute;
+		transition: none;
+		transform: translate(400px);
+	} 
+}
+  
